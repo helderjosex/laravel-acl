@@ -13,6 +13,7 @@
 
 Route::group(['prefix' => 'painel'], function(){
 
+Route::get('posts', 'PostController@index');	
 
 Route::get('/', 'PainelController@index');	
 });	
