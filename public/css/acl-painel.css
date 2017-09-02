@@ -1,6 +1,6 @@
 .logo{
     width: 100%;
-    margin-top: 28px;
+    margin-top: 0px;
 }
 .menu{
     background: rgba(28, 72, 70, 0.87);
@@ -11,21 +11,22 @@ ul.menu{
     list-style: none;
     width: 100%;
     margin: 0px;
-    padding: 12px;
+    padding: 50px;
 }
 ul.menu li{
     /* display: inline; */
     text-align: center;
+	float:left;
 }
 ul.menu li a{}
 ul.menu li h1{
-    font-size: 18px;
+    font-size: 14px;
     margin: 4px;
     color: #FFF;
     font-weight: bold;
 }
 img.img-menu{
-    max-width: 100px;
+    max-width: 50px;
 }
 a:hover{text-decoration: none;}
 
