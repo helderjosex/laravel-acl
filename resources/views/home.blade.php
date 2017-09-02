@@ -11,7 +11,7 @@
 		@endcan
 		<hr>		
 	@empty
-	<p> Nenhum Post cadastrado!</p>
+	<p> Nenhum post cadastrado!</p>
 	@endforelse
 </div>
 @endsection

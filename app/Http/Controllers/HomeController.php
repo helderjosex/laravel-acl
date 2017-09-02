@@ -40,4 +40,26 @@ class HomeController extends Controller
 		}
         return view('post-update', compact('post'));
     }
+	
+	public function rolesPermissions()
+	{
+	   $userName = auth()->user()->name;
+	   //echo "<h1>{$userName}</h1>";	
+	   $roles = auth()->user()->roles;
+	   /*foreach($roles as $role)
+	   {
+		   echo "$role->name -> ";
+		   
+		   $permissions = $role->permissions;
+		   
+		   foreach($permissions as $permission)
+		   {
+			   
+			 echo $permission->name.", ";  
+		   }
+		   
+		   echo "<hr>";
+	   }*/
+	   return view('roles-permissions', compact('userName','roles'));
+	}	
 }
