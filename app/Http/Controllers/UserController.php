@@ -31,4 +31,16 @@ class UserController extends Controller
 		$users = $this->user->all();	
         return view('painel.users.index', compact('users'));
     }
+	
+	/**
+     * Show the roles
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function roles($id)
+    {
+		$user = $this->user->find($id);	
+		$roles = $user->roles()->get();
+        return view('painel.users.roles', compact('user','roles'));
+    }
 }

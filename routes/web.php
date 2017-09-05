@@ -17,11 +17,14 @@ Route::group(['prefix' => 'painel'], function(){
 Route::get('posts', 'PostController@index')->name('posts');	
 // PermissionController
 Route::get('permissions', 'PermissionController@index')->name('permissions');
+Route::get('permissions/{id}/roles', 'PermissionController@roles')->name('permissions-roles');
+
 // RoleController	
 Route::get('roles', 'RoleController@index')->name('roles');
 Route::get('roles/{id}/permissions', 'RoleController@permissions')->name('roles-permissions');
 // UserController	
-Route::get('users', 'UserController@index')->name('users');	
+Route::get('users', 'UserController@index')->name('users');
+Route::get('users/{id}/roles', 'UserController@roles')->name('users-roles');	
 
 Route::get('/', 'PainelController@index');	
 });	

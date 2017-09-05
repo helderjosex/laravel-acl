@@ -20,7 +20,7 @@
 
 <div class="container">
 	<h1 class="title">
-		Permissions <b>{{ $role->name }}</b>
+		Permissions: <b>{{ $role->name }}</b>
 	</h1>
 
 	<table class="table table-hover">

@@ -83,6 +83,13 @@ ul.relatorios li h1{
     border-radius: 4px;
     margin: 4px;
 }
+.permission{
+    background: #579491;
+    padding: 8px;
+    color: #FFF;
+    border-radius: 4px;
+    margin: 4px;
+}
 
 h1.title{
     color: #395F5D;
