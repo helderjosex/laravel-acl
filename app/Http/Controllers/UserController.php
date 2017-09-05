@@ -3,22 +3,22 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Permission;
+use App\User;
 use Gate;
 
-class PermissionController extends Controller
+class UserController extends Controller
 {
-    private $permission;
+    private $user;
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct(Permission $permission)
+    public function __construct(User $user)
     {
         $this->middleware('auth');
 		
-		$this->permission = $permission;
+		$this->user = $user;
     }
 	
 	/**
@@ -28,7 +28,7 @@ class PermissionController extends Controller
      */
     public function index()
     {
-		$permissions = $this->permission->all();	
-        return view('painel.permissions.index', compact('permissions'));
+		$users = $this->user->all();	
+        return view('painel.users.index', compact('users'));
     }
 }

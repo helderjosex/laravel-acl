@@ -13,15 +13,18 @@
 
 Route::group(['prefix' => 'painel'], function(){
 
-Route::get('posts', 'PostController@index');	
+//PostController
+Route::get('posts', 'PostController@index')->name('posts');	
+// PermissionController
+Route::get('permissions', 'PermissionController@index')->name('permissions');
+// RoleController	
+Route::get('roles', 'RoleController@index')->name('roles');
+Route::get('roles/{id}/permissions', 'RoleController@permissions')->name('roles-permissions');
+// UserController	
+Route::get('users', 'UserController@index')->name('users');	
 
 Route::get('/', 'PainelController@index');	
 });	
-
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/post/{id}/update', 'HomeController@update')->name('update');
-Route::get('/roles-permissions', 'HomeController@rolesPermissions')->name('roles-permissions');
-
 
 //Route::get('/', 'HomeController@index');
 Route::get('/', 'PainelController@index');
