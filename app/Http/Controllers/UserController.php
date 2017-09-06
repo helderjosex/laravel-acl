@@ -19,8 +19,9 @@ class UserController extends Controller
         $this->middleware('auth');
 		
 		$this->user = $user;
+				
     }
-	
+		
 	/**
      * Show the application dashboard.
      *
@@ -28,6 +29,8 @@ class UserController extends Controller
      */
     public function index()
     {
+		$this->checkPermission('user');
+		
 		$users = $this->user->all();	
         return view('painel.users.index', compact('users'));
     }
@@ -39,8 +42,30 @@ class UserController extends Controller
      */
     public function roles($id)
     {
+		$this->checkPermission('user');
+		
 		$user = $this->user->find($id);	
 		$roles = $user->roles()->get();
         return view('painel.users.roles', compact('user','roles'));
+    }
+	
+	public function edit()
+    {
+		if (Gate::denies('edit_user')) 
+		{
+			abort(403, 'Unauthorized');
+		}
+		
+		// Show Form
+    }
+	
+	public function update()
+    {
+		if (Gate::denies('edit_user')) 
+		{
+			abort(403, 'Unauthorized');
+		}
+		
+		// Show Form
     }
 }

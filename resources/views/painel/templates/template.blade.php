@@ -27,18 +27,23 @@
 					<img src="{{ url('imgs/acl-branca.png') }}" alt="acl" class="logo">
 				</a>
 			</li>
+			@can('user')
 			<li class="col-md-2 text-center">
 				<a href="{{ route('users') }}">
 					<img src="{{ url('imgs/perfil-acl.png') }}" alt="Meu Perfil" class="img-menu">
 					<h1>Usuários</h1>
 				</a>
 			</li>
+			@endcan	
+			@can('view_post')
 			<li class="col-md-2 text-center">
 				<a href="{{ route('posts') }}">
 					<img src="{{ url('imgs/noticias-acl.png') }}" alt="Estilos" class="img-menu">
 					<h1>Posts</h1>
 				</a>
 			</li>
+			@endcan	
+			@can('adm')
 			<li class="col-md-2 text-center">
 				<a href="{{ route('roles') }}">
 					<img src="{{ url('imgs/funcao-acl.png') }}" alt="Albuns" class="img-menu">
@@ -51,7 +56,7 @@
 					<h1>Permissions</h1>
 				</a>
 			</li>
-			                                    
+			@endcan                                    
 			<li class="col-md-2 text-center">
 			<a href="{{ route('logout') }}"
                 onclick="event.preventDefault();

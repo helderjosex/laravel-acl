@@ -20,6 +20,11 @@ class PostController extends Controller
         $this->middleware('auth');
 		
 		$this->post = $post;
+		
+		/*if (Gate::denies('view_post')) 
+		{
+			return abort(403, 'Unauthorized');
+		}*/
     }
 	
 	/**
@@ -29,6 +34,7 @@ class PostController extends Controller
      */
     public function index()
     {
+		$this->checkPermission('view_post');
 		$posts = $this->post->all();	
         return view('painel.posts.index', compact('posts'));
     }

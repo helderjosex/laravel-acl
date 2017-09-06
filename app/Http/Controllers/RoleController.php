@@ -19,6 +19,7 @@ class RoleController extends Controller
         $this->middleware('auth');
 		
 		$this->role = $role;
+				
     }
 	
 	/**
@@ -28,6 +29,7 @@ class RoleController extends Controller
      */
     public function index()
     {
+		$this->checkPermission('adm');
 		$roles = $this->role->all();	
         return view('painel.roles.index', compact('roles'));
     }
@@ -39,6 +41,7 @@ class RoleController extends Controller
      */
     public function permissions($id)
     {
+		$this->checkPermission('adm');
 		$role = $this->role->find($id);	
 		$permissions = $role->permissions()->get();
         return view('painel.roles.permissions', compact('role','permissions'));
